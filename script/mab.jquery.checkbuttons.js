@@ -3,7 +3,7 @@
 // Version 1.0
 // @requires jQuery v1.6.2
 // 
-// Copyright (c) 2009 Mark Ashley Bell
+// Copyright (c) 2011 Mark Ashley Bell
 // Examples and docs at: https://github.com/markashleybell/mab.jquery.checkbuttons
 // 
 // Dual licensed under the MIT and GPL licenses:
