@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<title>CheckButtons Demo</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta http-equiv="content-language" content="en-gb" />
+        
+        <style type="text/css">
+        
+            body, p, form, label { margin: 0; padding: 0; }
+            body { margin: 50px; }
+            p { margin: 15px 0 0 0; }
+            
+            #output { margin: 20px 0 0 0; font-family: "Courier New", Courier, monospace; font-size: 14px; }
+
+        </style>
+        
+        <link rel="stylesheet" type="text/css" href="css/mab.jquery.checkbuttons.css" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+        <script src="script/mab.jquery.checkbuttons.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+
+            $(function () {
+
+                $('.mab-checkbutton-container').checkButtons();
+
+                $('#demo').bind('submit', function(event) {
+                
+                    event.preventDefault();
+                    
+                    if(!$('#output').length)
+                        $('body').append('<div id="output"></div>');
+                        
+                    var status = 'Checkbox 1: ' + (($('#checkbox-1').is(':checked')) ? 'Checked' : 'Not Checked') + '<br />' +
+                                 'Checkbox 2: ' + (($('#checkbox-2').is(':checked')) ? 'Checked' : 'Not Checked') + '<br />' +
+                                 'Checkbox 3: ' + (($('#checkbox-3').is(':checked')) ? 'Checked' : 'Not Checked') + '<br />';
+                        
+                    $('#output').html(status);
+                
+                });
+
+            });
+
+        </script>
+	</head>
+	<body>
+        <form id="demo" action="demo.html" method="post">
+            <p class="mab-checkbutton-container">
+                <input type="checkbox" value="1" name="checkbox-1" id="checkbox-1" /> <label for="checkbox-1">Checkbox 1</label> 
+                <input type="checkbox" value="1" checked="checked" name="checkbox-2" id="checkbox-2" /> <label for="checkbox-2">Checkbox 2</label> 
+                <input type="checkbox" value="1" checked="checked" name="checkbox-3" id="checkbox-3" /> <label for="checkbox-3">Checkbox 3</label>
+            </p>
+            <p><input type="submit" value="Submit Form and Show Values" /></p>
+        </form>
+	</body>
+</html>
