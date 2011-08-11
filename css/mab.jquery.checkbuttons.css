@@ -1,0 +1,66 @@
+.mab-checkbutton-container { overflow: auto; }
+
+.mab-checkbutton-container label {
+    background: url(../img/button.png) repeat-x scroll 0 0 #DDDDDD;
+    background-position: 0 -25px;
+    border-color: #BBBBBB #BBBBBB #999999;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font: 12px/15px Helvetica Neue,Arial,"Lucida Grande",Sans-serif;
+    margin: 0 5px 0 0;
+    overflow: hidden;
+    padding: 3px 6px;
+    float: left;
+}
+
+.mab-checkbutton-container .unchecked:hover, .mab-checkbutton-container .unchecked:focus {
+    background-position: 0 0;
+    border-color: #999999 #999999 #666666;
+    text-decoration: none;
+    color: #fff;
+}
+
+.mab-checkbutton-container .unchecked:hover span, .mab-checkbutton-container .unchecked:focus span {
+    background-position: 0 0;
+}
+
+.mab-checkbutton-container .checked:hover, .mab-checkbutton-container .checked:focus {
+    background-position: 0 -70px;
+    border-color: #999999 #999999 #666666;
+    text-decoration: none;
+    color: #fff;
+}
+
+.mab-checkbutton-container .checked:hover span, .mab-checkbutton-container .checked:focus span {
+    background-position: -16px 0;
+}
+
+.mab-checkbutton-container label:active {
+    background-image: none;
+    outline: medium none;
+    text-shadow: none;
+}
+
+.mab-checkbutton-container label span {
+    background-image: url(../img/icons.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    outline: medium none;
+    overflow: hidden;
+    vertical-align: bottom;
+    margin: 0 5px 0 0;
+    height: 16px;
+    width: 16px;
+}
+
+.mab-checkbutton-container .checked span {
+    background-position: 0 0;
+}
+
+.mab-checkbutton-container .unchecked span {
+    background-position: -16px 0;
+}

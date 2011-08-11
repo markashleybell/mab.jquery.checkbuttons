@@ -1,89 +1,129 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset='utf-8'>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<title>CheckButtons Demo</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta http-equiv="content-language" content="en-gb" />
+        
+        <style type="text/css">
+        
+            html {
+                background: #333;
+                color: #333;
+                font-family: Arial, sans-serif; 
+                font-size: 1em;
+                line-height: 24px;
+                text-align: center;
+            }
+            #container {
+                -webkit-box-shadow: 0 0 30px black;
+                background: white;
+                margin: 25px auto 200px auto;
+                padding: 40px 60px 80px 60px;
+                text-align: left;
+                max-width: 800px;
+                position: relative; 
+            }
+            a {
+                color: blue;
+            }
+            
+            .action { font-weight: bold; padding-top: 25px; font-size: 18px; }
 
-  <title>markashleybell/mab.jquery.checkbuttons @ GitHub</title>
+            body, p, form, label { margin: 0; padding: 0; }
+            body { margin: 50px; }
+            p { margin: 15px 0 0 0; }
+            
+            #output { margin-top: -13px; width: 320px; float: right; }
+            #console { margin-top: 5px; padding: 15px; font-family: "Courier New", Courier, monospace; font-size: 16px; background-color: #e0e0e0; border: solid 1px #999999; } 
 
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #ffffff;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #000000; }
-    h3 { text-align: center; color: #000000; }
-    a { color: #000000; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
-</head>
+            .gist { margin: 15px 0 0 0; font-size: 0.8em; }
 
-<body>
-  <a href="http://github.com/markashleybell/mab.jquery.checkbuttons"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+        </style>
+        
+        <link rel="stylesheet" type="text/css" href="css/mab.jquery.checkbuttons.css" />
 
-  <div id="container">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+        <script src="script/mab.jquery.checkbuttons.js" type="text/javascript"></script>
 
-    <div class="download">
-      <a href="http://github.com/markashleybell/mab.jquery.checkbuttons/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/markashleybell/mab.jquery.checkbuttons/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
+        <script type="text/javascript">
 
-    <h1><a href="http://github.com/markashleybell/mab.jquery.checkbuttons">mab.jquery.checkbuttons</a>
-      <span class="small">by <a href="http://github.com/markashleybell">markashleybell</a></span></h1>
+            $(function () {
 
-    <div class="description">
-      Replace a list of checkboxes with toggle buttons.
-    </div>
+                $('.mab-checkbutton-container').checkButtons();
 
-    <h2>License</h2>
-<p>Dual licensed under the MIT and GPL licenses:
-http://www.opensource.org/licenses/mit-license.php
-http://www.gnu.org/licenses/gpl.html</p>
-<h2>Authors</h2>
-<p>Mark Bell (me@markashleybell.com)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Mark Bell (me@markashleybell.com)<br/>      </p>
+                $('#demo1, #demo2').bind('submit', function(event) {
+                
+                    event.preventDefault();
+                        
+                    if(!$('#output').length)
+                        $('#first').before('<div id="output"><p><b>Output:</b></p><div id="console"></div></div>');
+                        
+                    var form = $(this);
+                        
+                    var status = 'Checkbox 1: ' + (($('[name=cb-1]', form).is(':checked')) ? 'Checked' : 'Not Checked') + '<br />' +
+                                 'Checkbox 2: ' + (($('[name=cb-2]', form).is(':checked')) ? 'Checked' : 'Not Checked') + '<br />' +
+                                 'Checkbox 3: ' + (($('[name=cb-3]', form).is(':checked')) ? 'Checked' : 'Not Checked') + '<br />';
+                        
+                    $('#output #console').html(status);
+                
+                });
 
+            });
 
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/markashleybell/mab.jquery.checkbuttons/zipball/master">zip</a> or
-      <a href="http://github.com/markashleybell/mab.jquery.checkbuttons/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/markashleybell/mab.jquery.checkbuttons</pre>
-    </p>
+        </script>
+	</head>
+	<body>
+        <div id="container">
+            <a href="http://github.com/markashleybell/mab.jquery.checkbuttons"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+        
+            <h1>mab.jquery.checkbuttons</h1>
+            
+            <p>This plugin transforms a list of checkbox inputs into a more visually scannable set of buttons indicating user selection.</p>
+            <p>As an example, the markup below:</p>
+            
+            <script src="https://gist.github.com/1139238.js?file=gistfile1.html"></script>
+            
+            
+            
+            <p id="first">Renders as:</p>
+            
+            <form id="demo1" action="" method="post">
+                <p>
+                    <input type="checkbox" value="1" name="cb-1" id="cb-1-demo" /> <label for="cb-1-demo">Checkbox 1</label> 
+                    <input type="checkbox" value="1" checked="checked" name="cb-2" id="cb-2-demo" /> <label for="cb-2-demo">Checkbox 2</label> 
+                    <input type="checkbox" value="1" checked="checked" name="cb-3" id="cb-3-demo" /> <label for="cb-3-demo">Checkbox 3</label>
+                </p>
+                <p><input type="submit" value="Submit Form and Show Values" /></p>
+            </form>
+            
+            <p>But with the aid of the CheckButtons plugin, becomes:</p>
+            
+            <form id="demo2" action="" method="post">
+                <p class="mab-checkbutton-container">
+                    <input type="checkbox" value="1" name="cb-1" id="cb-1" /> <label for="cb-1">Checkbox 1</label> 
+                    <input type="checkbox" value="1" checked="checked" name="cb-2" id="cb-2" /> <label for="cb-2">Checkbox 2</label> 
+                    <input type="checkbox" value="1" checked="checked" name="cb-3" id="cb-3" /> <label for="cb-3">Checkbox 3</label>
+                </p>
+                <p><input type="submit" value="Submit Form and Show Values" /></p>
+            </form>
+            
+            
+            
+            <p class="action"><a href="https://github.com/markashleybell/mab.jquery.checkbuttons">Get the source here</a> &raquo;</p>
+        </div>
+        <script type="text/javascript">
 
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/markashleybell/mab.jquery.checkbuttons">markashleybell/mab.jquery.checkbuttons</a>
-    </div>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-10947465-1']);
+            _gaq.push(['_trackPageview']);
 
-  </div>
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
 
-  <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-10947465-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-</body>
+        </script>
+	</body>
 </html>
