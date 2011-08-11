@@ -1,0 +1,1 @@
+Turns a list of checkboxes into selector buttons. [Click here for a demo](http://markashleybell.github.com/mab.jquery.checkbuttons/).
