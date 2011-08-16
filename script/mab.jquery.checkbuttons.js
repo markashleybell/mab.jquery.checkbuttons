@@ -27,16 +27,19 @@
             // Hide the checkbox off screen
             checkbox.css({ position: 'absolute', top: offset.top, left: '-1000px', outline: 'none' });
 
-        }).bind('click', function (event) {
+        }).bind('mouseout', function (event) {
 
             // We don't need to manually check the checkbox, just let the default
             // behaviour when a label is clicked handle it (for now)
             var label = $(this);
+            var checkbox = $('#' + label.attr('for'));
 
-            if (label.hasClass('checked')) {
-                label.removeClass('checked').addClass('unchecked');
-            } else {
+            if (checkbox.is(':checked')) {
+                console.log('mouseout: leave in checked state');
                 label.removeClass('unchecked').addClass('checked');
+            } else {
+                console.log('mouseout: leave in unchecked state');
+                label.removeClass('checked').addClass('unchecked');
             }
 
         });
